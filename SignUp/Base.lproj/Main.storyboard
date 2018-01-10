@@ -649,6 +649,7 @@
                         <outlet property="addressView" destination="YOo-S4-UDR" id="SuO-kE-3GR"/>
                         <outlet property="cityHeightCons" destination="6cn-EM-VXg" id="pE8-3M-cw1"/>
                         <outlet property="cityTopCons" destination="Thz-NL-2XN" id="a0O-tE-VrR"/>
+                        <outlet property="cityView" destination="CL0-Py-0kn" id="UAF-aZ-Bi9"/>
                         <outlet property="contentView" destination="4Rf-oO-QDA" id="32x-eF-9in"/>
                         <outlet property="dobHeightCons" destination="jgW-k3-3tn" id="5sp-L6-FOV"/>
                         <outlet property="dobTopCons" destination="k5P-Dj-FTf" id="cCm-tz-Odl"/>
@@ -673,6 +674,7 @@
                         <outlet property="phoneView" destination="pcV-fr-m3x" id="Qfz-mO-86P"/>
                         <outlet property="postalCodeHeightCons" destination="Afn-PG-3ve" id="TTu-SL-7ky"/>
                         <outlet property="postalCodeTopCons" destination="Avv-i7-cwS" id="Efe-im-vX6"/>
+                        <outlet property="postalCodeView" destination="a0A-xB-XdL" id="eAj-Os-oDY"/>
                         <outlet property="scrollView" destination="Wa5-VK-r2J" id="IeN-8s-gt8"/>
                     </connections>
                 </viewController>
@@ -1312,6 +1314,7 @@
                         <outlet property="emailButton" destination="A19-1p-KmT" id="biw-Om-DnJ"/>
                         <outlet property="firstnameButton" destination="VUh-xQ-v8X" id="lnw-ME-j2h"/>
                         <outlet property="genderButton" destination="E2u-nr-9zf" id="569-r7-ts5"/>
+                        <outlet property="goToSignUpButton" destination="Dfd-k7-gFl" id="JSe-Xw-3oH"/>
                         <outlet property="lastNameButton" destination="aWg-O4-GWA" id="ZWg-Fl-MvU"/>
                         <outlet property="loginButton" destination="sHS-UB-0jP" id="eVx-PI-nE1"/>
                         <outlet property="loginSignUPHeightCOns" destination="n0m-Kk-SAp" id="Vz9-U1-I1M"/>
