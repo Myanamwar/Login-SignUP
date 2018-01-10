@@ -41,6 +41,7 @@ class BaseVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: #colorLiteral(red: 0, green: 0.631372549, blue: 0.8901960784, alpha: 1)]
         self.selectAllButton.setImage(#imageLiteral(resourceName: "unchecked"), for: .normal)
         
     }
@@ -77,6 +78,7 @@ class BaseVC: UIViewController {
     }
     
     @IBAction func signUPClicked(_ sender: Any) {
+        self.title = "Select SignUP fields"
         self.loginButton.setImage(#imageLiteral(resourceName: "unchecked"), for: .normal)
         self.signUpButton.setImage(#imageLiteral(resourceName: "checked"), for: .normal)
         self.loginSubView.isHidden = true
@@ -114,9 +116,9 @@ class BaseVC: UIViewController {
         
         switch sender {
         case firstnameButton:
-            isVisibility = visibilityCheckForSignUP["fisrstName"]!
+            isVisibility = visibilityCheckForSignUP["firstName"]!
             isVisibility = !(isVisibility)
-            visibilityCheckForSignUP.updateValue(isVisibility, forKey: "fisrstName")
+            visibilityCheckForSignUP.updateValue(isVisibility, forKey: "firstName")
             
         case lastNameButton:
             isVisibility = visibilityCheckForSignUP["lastName"]!
@@ -196,7 +198,7 @@ class BaseVC: UIViewController {
 
     }
     func showSignUPPage() {
-        if (visibilityCheckForSignUP["fisrstName"]!) || (visibilityCheckForSignUP["lastName"]!) || (visibilityCheckForSignUP["email"]!) || (visibilityCheckForSignUP["password"]!) || (visibilityCheckForSignUP["dob"]!) || (visibilityCheckForSignUP["gender"]!) || (visibilityCheckForSignUP["mobileNumber"]!) || (visibilityCheckForSignUP["address"]!) || (visibilityCheckForSignUP["city"]!) || (visibilityCheckForSignUP["postalCode"]!) {
+        if (visibilityCheckForSignUP["firstName"]!) || (visibilityCheckForSignUP["lastName"]!) || (visibilityCheckForSignUP["email"]!) || (visibilityCheckForSignUP["password"]!) || (visibilityCheckForSignUP["dob"]!) || (visibilityCheckForSignUP["gender"]!) || (visibilityCheckForSignUP["mobileNumber"]!) || (visibilityCheckForSignUP["address"]!) || (visibilityCheckForSignUP["city"]!) || (visibilityCheckForSignUP["postalCode"]!) {
             
             goToSignUpButton.backgroundColor = #colorLiteral(red: 0, green: 0.2862745098, blue: 0.5058823529, alpha: 1)
             goToSignUpButton.isEnabled = true
@@ -204,13 +206,12 @@ class BaseVC: UIViewController {
             goToSignUpButton.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
             goToSignUpButton.isEnabled = false
         }
-        if (visibilityCheckForSignUP["fisrstName"]!) && (visibilityCheckForSignUP["lastName"]!) && (visibilityCheckForSignUP["email"]!) && (visibilityCheckForSignUP["password"]!) && (visibilityCheckForSignUP["dob"]!) && (visibilityCheckForSignUP["gender"]!) && (visibilityCheckForSignUP["mobileNumber"]!) && (visibilityCheckForSignUP["address"]!) && (visibilityCheckForSignUP["city"]!) && (visibilityCheckForSignUP["postalCode"]!) {
+        if (visibilityCheckForSignUP["firstName"]!) && (visibilityCheckForSignUP["lastName"]!) && (visibilityCheckForSignUP["email"]!) && (visibilityCheckForSignUP["password"]!) && (visibilityCheckForSignUP["dob"]!) && (visibilityCheckForSignUP["gender"]!) && (visibilityCheckForSignUP["mobileNumber"]!) && (visibilityCheckForSignUP["address"]!) && (visibilityCheckForSignUP["city"]!) && (visibilityCheckForSignUP["postalCode"]!) {
             self.isSelectedAll = true
             self.selectAllButton.setImage(#imageLiteral(resourceName: "checked"), for: .normal)
         } else {
             self.isSelectedAll = false
             self.selectAllButton.setImage(#imageLiteral(resourceName: "unchecked"), for: .normal)
-
         }
     }
 }

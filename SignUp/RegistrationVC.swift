@@ -68,7 +68,7 @@ class RegistrationVC: UIViewController {
     }
     func showValidFields(){
 
-        let isVisibleFirstName = visibilityCheckForSignUP["fisrstName"]!
+        let isVisibleFirstName = visibilityCheckForSignUP["firstName"]!
         let isVisibleLastName = visibilityCheckForSignUP["lastName"]!
         let isVisibleEmail = visibilityCheckForSignUP["email"]!
         let isVisiblePassword = visibilityCheckForSignUP["password"]!

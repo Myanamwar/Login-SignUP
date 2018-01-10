@@ -45,7 +45,7 @@ public class Login_SignUPRequirements : UIView {
 
 //setting SignUP fields visibility. show only the user selected fields. All fields are optional.
 
-var visibilityCheckForSignUP : [String: Bool] = ["fisrstName":true,
+var visibilityCheckForSignUP : [String: Bool] = ["firstName":true,
                                                  "lastName":true,
                                                  "email":true,
                                                  "password":true,
