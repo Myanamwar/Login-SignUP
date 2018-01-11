@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -127,58 +126,62 @@
                                 <action selector="signIn:" destination="-1" eventType="touchUpInside" id="Nk1-gz-X0d"/>
                             </connections>
                         </button>
-                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="vHt-Yd-ETX">
-                            <rect key="frame" x="20" y="232" width="260" height="23"/>
-                            <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aXt-G4-oLy">
-                                    <rect key="frame" x="0.0" y="0.0" width="71.5" height="23"/>
-                                    <color key="backgroundColor" red="0.0" green="0.63137254899999995" blue="0.89019607840000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <state key="normal">
-                                        <attributedString key="attributedTitle">
-                                            <fragment content="Register ?">
-                                                <attributes>
-                                                    <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <font key="NSFont" size="12" name="HelveticaNeue-Bold"/>
-                                                </attributes>
-                                            </fragment>
-                                        </attributedString>
-                                    </state>
-                                    <connections>
-                                        <action selector="register:" destination="-1" eventType="touchUpInside" id="Say-ab-BS0"/>
-                                    </connections>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R7V-Sk-biE">
-                                    <rect key="frame" x="121.5" y="0.0" width="138.5" height="23"/>
-                                    <color key="backgroundColor" red="0.0" green="0.63137254899999995" blue="0.89019607840000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
-                                    <state key="normal" title="Forgot Password?">
-                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </state>
-                                    <connections>
-                                        <action selector="forgotPassword:" destination="-1" eventType="touchUpInside" id="f9U-16-DrR"/>
-                                    </connections>
-                                </button>
-                            </subviews>
-                        </stackView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aXt-G4-oLy">
+                            <rect key="frame" x="190" y="232" width="90" height="23"/>
+                            <color key="backgroundColor" red="0.0" green="0.63137254899999995" blue="0.89019607840000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="23" id="65p-ez-qmd"/>
+                                <constraint firstAttribute="width" constant="90" id="eBe-jz-XQy"/>
+                            </constraints>
+                            <state key="normal">
+                                <attributedString key="attributedTitle">
+                                    <fragment content="Register ?">
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="12" name="HelveticaNeue-Bold"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                            </state>
+                            <connections>
+                                <action selector="register:" destination="-1" eventType="touchUpInside" id="Say-ab-BS0"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R7V-Sk-biE">
+                            <rect key="frame" x="20" y="232" width="105" height="23"/>
+                            <color key="backgroundColor" red="0.0" green="0.63137254899999995" blue="0.89019607840000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="23" id="Fyj-YS-oMx"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
+                            <state key="normal" title="Forgot Password?">
+                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="forgotPassword:" destination="-1" eventType="touchUpInside" id="f9U-16-DrR"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" red="0.43529411759999997" green="0.82745098039999998" blue="0.92549019610000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstAttribute="bottom" secondItem="vHt-Yd-ETX" secondAttribute="bottom" constant="5" id="0Q9-Ic-Cxr"/>
                         <constraint firstAttribute="trailing" secondItem="mNX-M2-b79" secondAttribute="trailing" constant="20" id="0ki-ME-v95"/>
                         <constraint firstItem="LXN-ke-NbX" firstAttribute="top" secondItem="V13-EI-Dl5" secondAttribute="top" constant="10" id="5rK-is-TDk"/>
-                        <constraint firstItem="vHt-Yd-ETX" firstAttribute="top" secondItem="RRm-Lu-b6V" secondAttribute="bottom" constant="20" id="7Dv-ah-dfL"/>
+                        <constraint firstAttribute="bottom" secondItem="aXt-G4-oLy" secondAttribute="bottom" constant="5" id="6XJ-Qd-4Bv"/>
                         <constraint firstItem="mNX-M2-b79" firstAttribute="leading" secondItem="V13-EI-Dl5" secondAttribute="leading" constant="20" id="7UH-bP-1ud"/>
                         <constraint firstAttribute="height" constant="260" id="84H-co-lrH"/>
+                        <constraint firstItem="R7V-Sk-biE" firstAttribute="leading" secondItem="V13-EI-Dl5" secondAttribute="leading" constant="20" id="9r0-rx-EI4"/>
                         <constraint firstItem="fW8-t5-BiR" firstAttribute="leading" secondItem="V13-EI-Dl5" secondAttribute="leading" constant="20" id="H4C-Wf-rf0"/>
+                        <constraint firstItem="R7V-Sk-biE" firstAttribute="top" secondItem="RRm-Lu-b6V" secondAttribute="bottom" constant="20" id="Vh0-Wl-1yq"/>
                         <constraint firstAttribute="trailing" secondItem="RRm-Lu-b6V" secondAttribute="trailing" constant="40" id="W7f-62-fUM"/>
                         <constraint firstAttribute="trailing" secondItem="fW8-t5-BiR" secondAttribute="trailing" constant="20" id="W9f-Ew-27K"/>
-                        <constraint firstAttribute="trailing" secondItem="vHt-Yd-ETX" secondAttribute="trailing" constant="20" id="Xya-NJ-kcl"/>
                         <constraint firstAttribute="trailing" secondItem="LXN-ke-NbX" secondAttribute="trailing" constant="20" id="YBS-Fd-wrq"/>
+                        <constraint firstAttribute="bottom" secondItem="R7V-Sk-biE" secondAttribute="bottom" constant="5" id="c9R-CZ-4ET"/>
                         <constraint firstItem="fW8-t5-BiR" firstAttribute="top" secondItem="LXN-ke-NbX" secondAttribute="bottom" constant="20" id="cDg-XC-LIl"/>
                         <constraint firstItem="mF7-c4-oGM" firstAttribute="top" secondItem="mNX-M2-b79" secondAttribute="bottom" constant="20" id="ctC-as-IwR"/>
-                        <constraint firstItem="vHt-Yd-ETX" firstAttribute="leading" secondItem="V13-EI-Dl5" secondAttribute="leading" constant="20" id="goq-0l-vZ6"/>
                         <constraint firstItem="LXN-ke-NbX" firstAttribute="leading" secondItem="V13-EI-Dl5" secondAttribute="leading" constant="20" id="hO6-vm-ra6"/>
+                        <constraint firstAttribute="trailing" secondItem="aXt-G4-oLy" secondAttribute="trailing" constant="20" id="iPN-HB-pwJ"/>
                         <constraint firstAttribute="trailing" secondItem="mF7-c4-oGM" secondAttribute="trailing" constant="20" id="n1r-Qe-Qhs"/>
+                        <constraint firstItem="aXt-G4-oLy" firstAttribute="top" secondItem="RRm-Lu-b6V" secondAttribute="bottom" constant="20" id="syi-KW-MNS"/>
                         <constraint firstItem="mF7-c4-oGM" firstAttribute="leading" secondItem="V13-EI-Dl5" secondAttribute="leading" constant="20" id="t0l-3X-YHm"/>
                         <constraint firstItem="RRm-Lu-b6V" firstAttribute="leading" secondItem="V13-EI-Dl5" secondAttribute="leading" constant="40" id="uoe-oh-3qT"/>
                         <constraint firstAttribute="width" constant="300" id="wQu-1o-Wam"/>

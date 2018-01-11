@@ -32,18 +32,20 @@ class FingerPrintAccessVC: UIViewController {
     
     @objc func updateUI() {
         var policy: LAPolicy?
+        var err: NSError?
         // Depending the iOS version we'll need to choose the policy we are able to use
         if #available(iOS 9.0, *) {
             // iOS 9+ users with Biometric and Passcode verification
             policy = .deviceOwnerAuthentication
+            policy = (context.canEvaluatePolicy(LAPolicy.deviceOwnerAuthenticationWithBiometrics, error:&err) ? LAPolicy.deviceOwnerAuthenticationWithBiometrics : LAPolicy.deviceOwnerAuthentication)
         } else {
             // iOS 8+ users with Biometric and Custom (Fallback button) verification
             context.localizedFallbackTitle = "Fuu!"
             policy = .deviceOwnerAuthenticationWithBiometrics
         }
-        var err: NSError?
         
         // Check if the user is able to use the policy we've selected previously
+
         guard context.canEvaluatePolicy(policy!, error: &err) else {
             image.image = UIImage(named: "TouchID_off")
             // Print the localized message received by the system
@@ -114,10 +116,10 @@ class FingerPrintAccessVC: UIViewController {
         image.image = UIImage(named: "TouchID_off")
         message.text = "Unexpected error! 😱"
     }
-    deinit {
-        NotificationCenter.default.removeObserver(self)
-    }
-    // MARK: IBAction Functions
+//    deinit {
+//        NotificationCenter.default.removeObserver(self)
+//    }
+    // MARK: IBAction Functions 
     
     @IBAction func resetContextState(_ sender: UIButton) {
         context = LAContext()

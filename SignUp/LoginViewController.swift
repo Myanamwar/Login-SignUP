@@ -39,7 +39,15 @@ class LoginViewController: UIViewController {
         defaultLeadingConstraint = self.loginLeadingConstraint.constant
         setPositionOfLoginView()
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        loginView.forgotPasswordButton.isHidden = !isForgotPasswordVisible
 
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

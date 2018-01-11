@@ -12,6 +12,7 @@
 		180407A520032BFF00AFCC09 /* LoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 180407A420032BFF00AFCC09 /* LoginView.xib */; };
 		180407A7200343EC00AFCC09 /* Login-SignUPConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180407A6200343EC00AFCC09 /* Login-SignUPConstants.swift */; };
 		180407A920039D0C00AFCC09 /* ForgotPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180407A820039D0C00AFCC09 /* ForgotPasswordVC.swift */; };
+		1866509020072BC30042C2C3 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1866508F20072BC20042C2C3 /* LocalAuthentication.framework */; };
 		186B0FFC1FFFAFB600F84330 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186B0FFB1FFFAFB600F84330 /* AppDelegate.swift */; };
 		186B0FFE1FFFAFB600F84330 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186B0FFD1FFFAFB600F84330 /* ViewController.swift */; };
 		186B10011FFFAFB600F84330 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 186B0FFF1FFFAFB600F84330 /* Main.storyboard */; };
@@ -47,6 +48,7 @@
 		180407A420032BFF00AFCC09 /* LoginView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginView.xib; sourceTree = "<group>"; };
 		180407A6200343EC00AFCC09 /* Login-SignUPConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Login-SignUPConstants.swift"; sourceTree = "<group>"; };
 		180407A820039D0C00AFCC09 /* ForgotPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordVC.swift; sourceTree = "<group>"; };
+		1866508F20072BC20042C2C3 /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
 		186B0FF81FFFAFB600F84330 /* SignUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SignUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		186B0FFB1FFFAFB600F84330 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		186B0FFD1FFFAFB600F84330 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1866509020072BC30042C2C3 /* LocalAuthentication.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,6 +93,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1866508E20072BC20042C2C3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1866508F20072BC20042C2C3 /* LocalAuthentication.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		186B0FEF1FFFAFB600F84330 = {
 			isa = PBXGroup;
 			children = (
@@ -97,6 +108,7 @@
 				186B100F1FFFAFB600F84330 /* SignUpTests */,
 				186B101A1FFFAFB600F84330 /* SignUpUITests */,
 				186B0FF91FFFAFB600F84330 /* Products */,
+				1866508E20072BC20042C2C3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -458,12 +470,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7KT628TBJQ;
+				DEVELOPMENT_TEAM = S78D2UKBG5;
 				INFOPLIST_FILE = SignUp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.TekysLab.Login-SignUp";
+				PRODUCT_BUNDLE_IDENTIFIER = com.fleetwise.fms;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -473,12 +488,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7KT628TBJQ;
+				DEVELOPMENT_TEAM = S78D2UKBG5;
 				INFOPLIST_FILE = SignUp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.TekysLab.Login-SignUp";
+				PRODUCT_BUNDLE_IDENTIFIER = com.fleetwise.fms;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

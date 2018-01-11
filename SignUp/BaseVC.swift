@@ -99,7 +99,6 @@ class BaseVC: UIViewController {
     @IBAction func loginViaCredentials(_ sender: Any) {
         self.usernameOrPasswordButton.setImage(#imageLiteral(resourceName: "checked"), for: .normal)
         self.biometricButton.setImage(#imageLiteral(resourceName: "unchecked"), for: .normal)
-
         self.signUPView.isHidden = true
         let loginVC: ViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ViewController") as! ViewController
         self.navigationController?.pushViewController(loginVC, animated: false)
@@ -164,9 +163,7 @@ class BaseVC: UIViewController {
         } else {
             sender.setImage(#imageLiteral(resourceName: "unchecked"), for: .normal)
         }
-        
         self.showSignUPPage()
-
     }
     
     @IBAction func selectAllClicked(_ sender: Any) {
@@ -194,6 +191,7 @@ class BaseVC: UIViewController {
         self.addressButton.setImage(selectedImage, for: .normal)
         self.cityButton.setImage(selectedImage, for: .normal)
         self.postalCodeButton.setImage(selectedImage, for: .normal)
+        
         self.showSignUPPage()
 
     }

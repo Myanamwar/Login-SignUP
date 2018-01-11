@@ -45,7 +45,7 @@ public class Login_SignUPRequirements : UIView {
 
 //setting SignUP fields visibility. show only the user selected fields. All fields are optional.
 
-var visibilityCheckForSignUP : [String: Bool] = ["firstName":true,
+public var visibilityCheckForSignUP : [String: Bool] = ["firstName":true,
                                                  "lastName":true,
                                                  "email":true,
                                                  "password":true,
@@ -55,4 +55,9 @@ var visibilityCheckForSignUP : [String: Bool] = ["firstName":true,
                                                  "address":true,
                                                  "city":true,
                                                  "postalCode":true]
+
+// Make it false if you don't want to show forgotPassword button in login page
+public var isForgotPasswordVisible = true
+
+
 
