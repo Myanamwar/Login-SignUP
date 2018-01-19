@@ -8,8 +8,12 @@
 
 import UIKit
 
-class BaseVC: UIViewController {
+open class BaseVC: UIViewController {
     
+    
+    @IBOutlet var loginTypeView: UIView!
+    @IBOutlet var signupOptionalFieldsView: UIView!
+    // MARK:- Outlets & Variables
     @IBOutlet var selectAllButton: UIButton!
     @IBOutlet var goToSignUpButton: UIButton!
     @IBOutlet var usernameOrPasswordButton: UIButton!
@@ -19,8 +23,6 @@ class BaseVC: UIViewController {
     @IBOutlet var loginSubViewTopCons: NSLayoutConstraint!// 20
     @IBOutlet var loginSubView: UIView!
     @IBOutlet var loginSubViewHeightCons: NSLayoutConstraint! //120
-    @IBOutlet var loginSignUPView: UIView!
-    @IBOutlet var signUPView: UIView!
     @IBOutlet var loginSignUPHeightCOns: NSLayoutConstraint!
     
     // signup fields outlets
@@ -38,68 +40,69 @@ class BaseVC: UIViewController {
     
     var isSelectedAll = false
     
-    override func viewDidLoad() {
+    // MARK:- View Life Cycle Methods
+    override open func viewDidLoad() {
         super.viewDidLoad()
         
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: #colorLiteral(red: 0, green: 0.631372549, blue: 0.8901960784, alpha: 1)]
-        self.selectAllButton.setImage(#imageLiteral(resourceName: "unchecked"), for: .normal)
+        self.selectAllButton.setImage(unCheckedImage, for: .normal)
         
+        setTitleAndBGColorsForButtons()
     }
-    override func viewWillAppear(_ animated: Bool) {
+    override open func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         self.title = "Login/SignUP"
-        self.loginSignUPView.isHidden = false
-        self.signUPView.isHidden = true
+        self.loginTypeView.isHidden = false
+        self.signupOptionalFieldsView.isHidden = true
         self.loginSubView.isHidden = true
         loginSignUPHeightCOns.constant = -140
         loginSubViewTopCons.constant = 0;
         self.loginSubViewHeightCons.constant = 0
-        self.loginButton.setImage(#imageLiteral(resourceName: "unchecked"), for: .normal)
-        self.signUpButton.setImage(#imageLiteral(resourceName: "unchecked"), for: .normal)
-        self.usernameOrPasswordButton.setImage(#imageLiteral(resourceName: "unchecked"), for: .normal)
-        self.biometricButton.setImage(#imageLiteral(resourceName: "unchecked"), for: .normal)
+        self.loginButton.setImage(unCheckedImage, for: .normal)
+        self.signUpButton.setImage(unCheckedImage, for: .normal)
+        self.usernameOrPasswordButton.setImage(unCheckedImage, for: .normal)
+        self.biometricButton.setImage(unCheckedImage, for: .normal)
         self.showSignUPPage()
         
     }
-    override func didReceiveMemoryWarning() {
+    override open func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+    // MARK:- Button Actions
     @IBAction func loginClicked(_ sender: Any) {
-        self.loginButton.setImage(#imageLiteral(resourceName: "checked"), for: .normal)
-        self.signUpButton.setImage(#imageLiteral(resourceName: "unchecked"), for: .normal)
+        self.loginButton.setImage(checkedImage, for: .normal)
+        self.signUpButton.setImage(unCheckedImage, for: .normal)
         self.loginSubView.isHidden = false
         loginSignUPHeightCOns.constant = +140
         loginSubViewTopCons.constant = 20; self.loginSubViewHeightCons.constant = 120
-        self.signUPView.isHidden = true
+        self.signupOptionalFieldsView.isHidden = true
 
     }
     
     @IBAction func signUPClicked(_ sender: Any) {
         self.title = "Select SignUP fields"
-        self.loginButton.setImage(#imageLiteral(resourceName: "unchecked"), for: .normal)
-        self.signUpButton.setImage(#imageLiteral(resourceName: "checked"), for: .normal)
+        self.loginButton.setImage(unCheckedImage, for: .normal)
+        self.signUpButton.setImage(checkedImage, for: .normal)
         self.loginSubView.isHidden = true
         loginSignUPHeightCOns.constant = -140
         loginSubViewTopCons.constant = 0; self.loginSubViewHeightCons.constant = 0
-        self.loginSignUPView.isHidden = true
-        self.signUPView.isHidden = false
+        self.loginTypeView.isHidden = true
+        self.signupOptionalFieldsView.isHidden = false
     }
     
     @IBAction func biometricLogin(_ sender: Any) {
-        self.usernameOrPasswordButton.setImage(#imageLiteral(resourceName: "unchecked"), for: .normal)
-        self.biometricButton.setImage(#imageLiteral(resourceName: "checked"), for: .normal)
+        self.usernameOrPasswordButton.setImage(unCheckedImage, for: .normal)
+        self.biometricButton.setImage(checkedImage, for: .normal)
 
-        self.signUPView.isHidden = true
+        self.signupOptionalFieldsView.isHidden = true
         let biometricVC: FingerPrintAccessVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FingerPrintAccessVC") as! FingerPrintAccessVC
         self.navigationController?.pushViewController(biometricVC, animated: false)
     }
     @IBAction func loginViaCredentials(_ sender: Any) {
-        self.usernameOrPasswordButton.setImage(#imageLiteral(resourceName: "checked"), for: .normal)
-        self.biometricButton.setImage(#imageLiteral(resourceName: "unchecked"), for: .normal)
-        self.signUPView.isHidden = true
+        self.usernameOrPasswordButton.setImage(checkedImage, for: .normal)
+        self.biometricButton.setImage(unCheckedImage, for: .normal)
+        self.signupOptionalFieldsView.isHidden = true
         let loginVC: ViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ViewController") as! ViewController
         self.navigationController?.pushViewController(loginVC, animated: false)
     }
@@ -159,23 +162,23 @@ class BaseVC: UIViewController {
             break
         }
         if isVisibility {
-            sender.setImage(#imageLiteral(resourceName: "checked"), for: .normal)
+            sender.setImage(checkedImage, for: .normal)
         } else {
-            sender.setImage(#imageLiteral(resourceName: "unchecked"), for: .normal)
+            sender.setImage(unCheckedImage, for: .normal)
         }
         self.showSignUPPage()
     }
     
     @IBAction func selectAllClicked(_ sender: Any) {
         isSelectedAll = !isSelectedAll
-        var selectedImage = #imageLiteral(resourceName: "unchecked")
+        var selectedImage = unCheckedImage
         if isSelectedAll {
-            selectedImage = #imageLiteral(resourceName: "checked")
+            selectedImage = checkedImage
             for (key,_) in visibilityCheckForSignUP {
                 visibilityCheckForSignUP[key] = true
             }
         } else {
-            selectedImage = #imageLiteral(resourceName: "unchecked")
+            selectedImage = unCheckedImage
             for (key,_) in visibilityCheckForSignUP {
                 visibilityCheckForSignUP[key] = false
             }
@@ -195,10 +198,14 @@ class BaseVC: UIViewController {
         self.showSignUPPage()
 
     }
+}
+extension BaseVC {
+    
+    // MARK:- Private Methods
     func showSignUPPage() {
         if (visibilityCheckForSignUP["firstName"]!) || (visibilityCheckForSignUP["lastName"]!) || (visibilityCheckForSignUP["email"]!) || (visibilityCheckForSignUP["password"]!) || (visibilityCheckForSignUP["dob"]!) || (visibilityCheckForSignUP["gender"]!) || (visibilityCheckForSignUP["mobileNumber"]!) || (visibilityCheckForSignUP["address"]!) || (visibilityCheckForSignUP["city"]!) || (visibilityCheckForSignUP["postalCode"]!) {
             
-            goToSignUpButton.backgroundColor = #colorLiteral(red: 0, green: 0.2862745098, blue: 0.5058823529, alpha: 1)
+            goToSignUpButton.backgroundColor = _buttonBackgroundColor
             goToSignUpButton.isEnabled = true
         } else {
             goToSignUpButton.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
@@ -206,10 +213,31 @@ class BaseVC: UIViewController {
         }
         if (visibilityCheckForSignUP["firstName"]!) && (visibilityCheckForSignUP["lastName"]!) && (visibilityCheckForSignUP["email"]!) && (visibilityCheckForSignUP["password"]!) && (visibilityCheckForSignUP["dob"]!) && (visibilityCheckForSignUP["gender"]!) && (visibilityCheckForSignUP["mobileNumber"]!) && (visibilityCheckForSignUP["address"]!) && (visibilityCheckForSignUP["city"]!) && (visibilityCheckForSignUP["postalCode"]!) {
             self.isSelectedAll = true
-            self.selectAllButton.setImage(#imageLiteral(resourceName: "checked"), for: .normal)
+            self.selectAllButton.setImage(checkedImage, for: .normal)
         } else {
             self.isSelectedAll = false
-            self.selectAllButton.setImage(#imageLiteral(resourceName: "unchecked"), for: .normal)
+            self.selectAllButton.setImage(unCheckedImage, for: .normal)
         }
+    }
+    func setTitleAndBGColorsForButtons(){
+        
+        self.loginTypeView.backgroundColor = _backgroundColor
+        self.signupOptionalFieldsView.backgroundColor = _backgroundColor
+        self.loginButton.titleLabel?.textColor = _textColor
+        self.usernameOrPasswordButton.titleLabel?.textColor = _textColor
+        self.biometricButton.titleLabel?.textColor = _textColor
+        self.signUpButton.titleLabel?.textColor = _textColor
+        self.firstnameButton.titleLabel?.textColor = _textColor
+        self.lastNameButton.titleLabel?.textColor = _textColor
+        self.emailButton.titleLabel?.textColor = _textColor
+        self.passwordButton.titleLabel?.textColor = _textColor
+        self.dobButton.titleLabel?.textColor = _textColor
+        self.genderButton.titleLabel?.textColor = _textColor
+        self.mobileNoButton.titleLabel?.textColor = _textColor
+        self.addressButton.titleLabel?.textColor = _textColor
+        self.cityButton.titleLabel?.textColor = _textColor
+        self.postalCodeButton.titleLabel?.textColor = _textColor
+        self.goToSignUpButton.backgroundColor = _buttonBackgroundColor
+        
     }
 }

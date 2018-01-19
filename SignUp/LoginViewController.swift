@@ -8,7 +8,7 @@
 
 import UIKit
 
-public enum LoginViewPosition {
+public enum ViewPosition {
     case _top
     case _bottom
     case _left
@@ -16,8 +16,9 @@ public enum LoginViewPosition {
     case _default
 }
 
-class LoginViewController: UIViewController {
+open class LoginViewController: UIViewController {
 
+    // MARK:- Outlets & Variables
     @IBOutlet var loginViewWidthCons: NSLayoutConstraint!
     @IBOutlet var loginViewHeightCons: NSLayoutConstraint!
     @IBOutlet var loginLeadingConstraint: NSLayoutConstraint!
@@ -26,10 +27,9 @@ class LoginViewController: UIViewController {
     
     var defaultTopConstraint : CGFloat = 0
     var defaultLeadingConstraint : CGFloat = 0
-    var position: LoginViewPosition = ._default
     
-    
-    override func viewDidLoad() {
+// MARK:- View Life Cycle Methods
+    override open func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Login"
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: #colorLiteral(red: 0, green: 0.631372549, blue: 0.8901960784, alpha: 1)]
@@ -39,20 +39,27 @@ class LoginViewController: UIViewController {
         defaultLeadingConstraint = self.loginLeadingConstraint.constant
         setPositionOfLoginView()
     }
-    override func viewWillAppear(_ animated: Bool) {
+    override open func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
     }
-    override func viewDidAppear(_ animated: Bool) {
+    override open func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        loginView.registerButton.isHidden = true
+        for (key,_) in visibilityCheckForSignUP {
+            if (visibilityCheckForSignUP[key] == true) && (isResisterButtonVisible){
+                loginView.registerButton.isHidden = false
+            }
+        }
         loginView.forgotPasswordButton.isHidden = !isForgotPasswordVisible
 
     }
-    override func didReceiveMemoryWarning() {
+    override open func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
- 
+ // MARK:- Private Methods
     func checkValidCredentials(_ userName: String, _ password: String) -> Bool{
         let username = userName.trimmingCharacters(in: .whitespaces)
         let password = password.trimmingCharacters(in: .whitespaces)
@@ -83,7 +90,7 @@ class LoginViewController: UIViewController {
         let viewHeight = loginViewHeightCons.constant
         let viewWidth = loginViewWidthCons.constant
         
-        switch position {
+        switch positionOfLoginView {
         case ._top:
             self.loginTopConstraint.constant = 0
             break
@@ -105,14 +112,16 @@ class LoginViewController: UIViewController {
         }
     }
 }
+// MARK:- SignIn delegate methods
 extension LoginViewController: SignInDelegate {
     func signingIn(username: String, password: String) {
         let isValidSignIn = self.checkValidCredentials(username, password)
         if isValidSignIn {
-            showSuccessAlert(message: "SignIn Successfull", currentVC: self)
+            showAlert(message: "SignIn Successfull", currentVC: self)
         }
     }
     func forgotPassword() {
+        // move to forgot password screen
         let forgotPasswordVC : ForgotPasswordVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ForgotPasswordVC") as! ForgotPasswordVC
         self.navigationController?.pushViewController(forgotPasswordVC, animated: false)
     }

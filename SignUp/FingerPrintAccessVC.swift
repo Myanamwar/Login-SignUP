@@ -9,27 +9,31 @@
 import UIKit
 import LocalAuthentication
 
-class FingerPrintAccessVC: UIViewController {
+open class FingerPrintAccessVC: UIViewController {
     
-    var context = LAContext()
+    // MARK:- Outlets & Variables
+
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var message: UILabel!
     @IBOutlet weak var refresh: UIButton!
     
+    var context = LAContext()
     let kMsgShowFinger = "Show me your finger 👍"
     let kMsgShowReason = "🌛 Try to dismiss this screen 🌜"
     let kMsgFingerOK = "Login successful! ✅"
     
-    override func viewDidLoad() {
+    // MARK:- View Life Cycle Methods
+    override open func viewDidLoad() {
         super.viewDidLoad()
         setupController()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    override open func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         updateUI()
     }
     
+    // MARK:- Private Methods
     @objc func updateUI() {
         var policy: LAPolicy?
         var err: NSError?
@@ -116,10 +120,10 @@ class FingerPrintAccessVC: UIViewController {
         image.image = UIImage(named: "TouchID_off")
         message.text = "Unexpected error! 😱"
     }
-//    deinit {
-//        NotificationCenter.default.removeObserver(self)
-//    }
-    // MARK: IBAction Functions 
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    // MARK: Button Action Functions 
     
     @IBAction func resetContextState(_ sender: UIButton) {
         context = LAContext()

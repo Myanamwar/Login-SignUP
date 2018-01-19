@@ -8,8 +8,9 @@
 
 import UIKit
 
-class ForgotPasswordVC: UIViewController {
+open class ForgotPasswordVC: UIViewController {
     
+    // MARK:- Outlets & Variables
     @IBOutlet var forgotPasswordViewWidthCons: NSLayoutConstraint!
     @IBOutlet var forgotPasswordViewHeightCons: NSLayoutConstraint!
     @IBOutlet var forgotPasswordLeadingConstraint: NSLayoutConstraint!
@@ -23,18 +24,19 @@ class ForgotPasswordVC: UIViewController {
     @IBOutlet var reEnterPasswordTextField: UITextField!
     @IBOutlet var setNewPassword: UIButton!
 
-
-    override func viewDidLoad() {
+// MARK:- View Life Cycle Methods
+    override open func viewDidLoad() {
         super.viewDidLoad()
-
+        self.setNewPassword.backgroundColor = _buttonBackgroundColor
         // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
+    override open func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+    // MARK:- Button Actions
     @IBAction func setNewPassword(_ sender: Any) {
     }
 }

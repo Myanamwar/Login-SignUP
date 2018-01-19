@@ -11,7 +11,6 @@
     <customFonts key="customFonts">
         <array key="HelveticaNeue.ttc">
             <string>HelveticaNeue</string>
-            <string>HelveticaNeue-Bold</string>
         </array>
     </customFonts>
     <objects>
@@ -118,7 +117,7 @@
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="UV4-eX-9ad"/>
                             </constraints>
-                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                             <state key="normal" title="Sign in">
                                 <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
@@ -127,18 +126,18 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aXt-G4-oLy">
-                            <rect key="frame" x="190" y="232" width="90" height="23"/>
-                            <color key="backgroundColor" red="0.0" green="0.63137254899999995" blue="0.89019607840000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <rect key="frame" x="180" y="232" width="100" height="23"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="23" id="65p-ez-qmd"/>
-                                <constraint firstAttribute="width" constant="90" id="eBe-jz-XQy"/>
+                                <constraint firstAttribute="width" constant="100" id="eBe-jz-XQy"/>
                             </constraints>
                             <state key="normal">
                                 <attributedString key="attributedTitle">
                                     <fragment content="Register ?">
                                         <attributes>
                                             <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <font key="NSFont" size="12" name="HelveticaNeue-Bold"/>
+                                            <font key="NSFont" size="20" name="HelveticaNeue-Bold"/>
                                         </attributes>
                                     </fragment>
                                 </attributedString>
@@ -148,12 +147,12 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R7V-Sk-biE">
-                            <rect key="frame" x="20" y="232" width="105" height="23"/>
-                            <color key="backgroundColor" red="0.0" green="0.63137254899999995" blue="0.89019607840000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <rect key="frame" x="20" y="232" width="170" height="23"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="23" id="Fyj-YS-oMx"/>
                             </constraints>
-                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                             <state key="normal" title="Forgot Password?">
                                 <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
