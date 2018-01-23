@@ -83,7 +83,7 @@ import UIKit
     override func layoutSubviews() {
         super.layoutSubviews()
         setTitlePositionForTextAlignment()
-        setBorderPostion()
+        setViewPosition()
         let isResp = isFirstResponder
         if let _ = text ,  isResp {
             title.textColor = titleActiveTextColour
@@ -167,7 +167,7 @@ import UIKit
         }
         title.frame = CGRect(x:x, y:title.frame.origin.y, width:title.frame.size.width, height:title.frame.size.height)
     }
-    fileprivate func setBorderPostion() {
+    fileprivate func setViewPosition() {
         let width = CGFloat(2.0)
         bottomLineView.frame = CGRect(x: 0, y: self.frame.size.height - width - 5, width:  self.frame.size.width, height: 1)
     }

@@ -15,6 +15,7 @@
 		18067BC02010B95800F8AE11 /* CustomFloatingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18067BBF2010B95800F8AE11 /* CustomFloatingTextField.swift */; };
 		18067BC22010BE8D00F8AE11 /* SampleTextFieldVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18067BC12010BE8D00F8AE11 /* SampleTextFieldVC.swift */; };
 		1826EF662011BD2B00C018C5 /* FloatLabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1826EF652011BD2B00C018C5 /* FloatLabelTextField.swift */; };
+		1826EF68201208E300C018C5 /* FloatLabelTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1826EF67201208E300C018C5 /* FloatLabelTextView.swift */; };
 		1866509020072BC30042C2C3 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1866508F20072BC20042C2C3 /* LocalAuthentication.framework */; };
 		186B0FFC1FFFAFB600F84330 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186B0FFB1FFFAFB600F84330 /* AppDelegate.swift */; };
 		186B0FFE1FFFAFB600F84330 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186B0FFD1FFFAFB600F84330 /* ViewController.swift */; };
@@ -54,6 +55,7 @@
 		18067BBF2010B95800F8AE11 /* CustomFloatingTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFloatingTextField.swift; sourceTree = "<group>"; };
 		18067BC12010BE8D00F8AE11 /* SampleTextFieldVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleTextFieldVC.swift; sourceTree = "<group>"; };
 		1826EF652011BD2B00C018C5 /* FloatLabelTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatLabelTextField.swift; sourceTree = "<group>"; };
+		1826EF67201208E300C018C5 /* FloatLabelTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatLabelTextView.swift; sourceTree = "<group>"; };
 		1866508F20072BC20042C2C3 /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
 		186B0FF81FFFAFB600F84330 /* SignUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SignUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		186B0FFB1FFFAFB600F84330 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 				186B0FFD1FFFAFB600F84330 /* ViewController.swift */,
 				18067BBF2010B95800F8AE11 /* CustomFloatingTextField.swift */,
 				1826EF652011BD2B00C018C5 /* FloatLabelTextField.swift */,
+				1826EF67201208E300C018C5 /* FloatLabelTextView.swift */,
 				180407A020032BCC00AFCC09 /* LoginViewController.swift */,
 				18CB30802004EAAB00E8EC9F /* BaseVC.swift */,
 				18CB307B2004D33A00E8EC9F /* FingerPrintAccessVC.swift */,
@@ -308,6 +311,7 @@
 				180407A120032BCC00AFCC09 /* LoginViewController.swift in Sources */,
 				18067BC22010BE8D00F8AE11 /* SampleTextFieldVC.swift in Sources */,
 				186B0FFE1FFFAFB600F84330 /* ViewController.swift in Sources */,
+				1826EF68201208E300C018C5 /* FloatLabelTextView.swift in Sources */,
 				180407A920039D0C00AFCC09 /* ForgotPasswordVC.swift in Sources */,
 				180407A320032BE200AFCC09 /* LoginView.swift in Sources */,
 				18067BC02010B95800F8AE11 /* CustomFloatingTextField.swift in Sources */,

@@ -24,29 +24,18 @@ open class RegistrationVC: UIViewController {
     @IBOutlet var cityView: UIView!
     @IBOutlet var postalCodeView: UIView!
     
-    @IBOutlet var firstNameLabel: UILabel!
-    @IBOutlet var lastNameLabel: UILabel!
-//    @IBOutlet var emailLabel: UILabel!
-    @IBOutlet var passwordLabel: UILabel!
-    @IBOutlet var dobLabel: UILabel!
-    @IBOutlet var genderLabel: UILabel!
-    @IBOutlet var phoneLabel: UILabel!
-    @IBOutlet var addressLabel: UILabel!
-    @IBOutlet var cityLabel: UILabel!
-    @IBOutlet var postalCodeLabel: UILabel!
+    @IBOutlet var fisrtNameTextField: FloatLabelTextField!
+    @IBOutlet var lastNameTextField: FloatLabelTextField!
     
-    @IBOutlet var fisrtNameTextField: CustomTextField!
-    @IBOutlet var lastNameTextField: CustomTextField!
-    
-    @IBOutlet var emailTextField: CustomFloatingTextField!
+    @IBOutlet var emailTextField: FloatLabelTextField!
     //    @IBOutlet var emailTextField: CustomTextField!
-    @IBOutlet var passwordTextField: CustomTextField!
-    @IBOutlet var dobTextField: CustomTextField!
-    @IBOutlet var genderTextField: CustomTextField!
-    @IBOutlet var phoneTextField: CustomTextField!
-    @IBOutlet var addressTextField: CustomTextField!
-    @IBOutlet var cityTextField: CustomTextField!
-    @IBOutlet var postalCodeTextField: CustomTextField!
+    @IBOutlet var passwordTextField: FloatLabelTextField!
+    @IBOutlet var dobTextField: FloatLabelTextField!
+    @IBOutlet var genderTextField: FloatLabelTextField!
+    @IBOutlet var phoneTextField: FloatLabelTextField!
+    @IBOutlet var addressTextField: FloatLabelTextField!
+    @IBOutlet var cityTextField: FloatLabelTextField!
+    @IBOutlet var postalCodeTextField: FloatLabelTextField!
     
     @IBOutlet var dobButton: UIButton!
     @IBOutlet var genderButton: UIButton!
@@ -87,7 +76,6 @@ open class RegistrationVC: UIViewController {
         self.addressTextField.delegate = self
         self.cityTextField.delegate = self
         self.postalCodeTextField.delegate = self
-        self.firstNameLabel.isHidden = true
         
         fisrtNameTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .allEvents)
         
@@ -108,16 +96,6 @@ open class RegistrationVC: UIViewController {
     }
     // MARK:- Private Methods
     func setTextColorForControls() {
-        self.firstNameLabel.textColor = _labelTextColor
-        self.lastNameLabel.textColor = _labelTextColor
-//        self.emailLabel.textColor = _labelTextColor
-        self.passwordLabel.textColor = _labelTextColor
-        self.dobLabel.textColor = _labelTextColor
-        self.genderLabel.textColor = _labelTextColor
-        self.phoneLabel.textColor = _labelTextColor
-        self.addressLabel.textColor = _labelTextColor
-        self.cityLabel.textColor = _labelTextColor
-        self.postalCodeLabel.textColor = _labelTextColor
         self.signUPButton.backgroundColor = _buttonBackgroundColor
     }
     
@@ -256,23 +234,12 @@ open class RegistrationVC: UIViewController {
 extension RegistrationVC: UITextFieldDelegate {
     
     @objc func textFieldDidChange(_ textField: UITextField) {
-        self.firstNameLabel.isHidden = false
-        if (textField.text?.count == 0) {
-            self.firstNameLabel.isHidden = true
-        } else {
-            self.firstNameLabel.textColor = #colorLiteral(red: 0, green: 0.631372549, blue: 0.8901960784, alpha: 1)
-            self.firstNameLabel.isHidden = false
-        }
+        
         
     }
    
     public func textFieldDidEndEditing(_ textField: UITextField) {
-        if (textField.text?.count == 0) {
-            self.firstNameLabel.isHidden = true
-        } else {
-            self.firstNameLabel.textColor = .gray
-            self.firstNameLabel.isHidden = false
-        }
+        
     }
 }
 class CustomTextField: UITextField {

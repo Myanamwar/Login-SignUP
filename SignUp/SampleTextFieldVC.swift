@@ -10,11 +10,11 @@ import UIKit
 
 class SampleTextFieldVC: UIViewController {
 
+    @IBOutlet var sampleTextView: FloatLabelTextView!
     @IBOutlet var nameTF: CustomFloatingTextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
 
