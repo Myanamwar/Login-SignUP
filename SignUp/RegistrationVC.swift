@@ -33,7 +33,8 @@ open class RegistrationVC: UIViewController {
     @IBOutlet var dobTextField: FloatLabelTextField!
     @IBOutlet var genderTextField: FloatLabelTextField!
     @IBOutlet var phoneTextField: FloatLabelTextField!
-    @IBOutlet var addressTextField: FloatLabelTextField!
+//    @IBOutlet var addressTextField: FloatLabelTextField!
+    @IBOutlet var addressTextView: FloatLabelTextView!
     @IBOutlet var cityTextField: FloatLabelTextField!
     @IBOutlet var postalCodeTextField: FloatLabelTextField!
     
@@ -73,7 +74,7 @@ open class RegistrationVC: UIViewController {
         self.dobTextField.delegate = self
         self.genderTextField.delegate = self
         self.phoneTextField.delegate = self
-        self.addressTextField.delegate = self
+//        self.addressTextField.delegate = self
         self.cityTextField.delegate = self
         self.postalCodeTextField.delegate = self
         

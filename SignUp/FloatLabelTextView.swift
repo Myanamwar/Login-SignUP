@@ -159,7 +159,7 @@ import UIKit
         hintLabel.text = hint
         hintLabel.numberOfLines = 0
         hintLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
-        hintLabel.backgroundColor = UIColor.clear
+        //hintLabel.backgroundColor = UIColor.clear
         hintLabel.textColor = placeholderTextColor
         insertSubview(hintLabel, at:0)
         insertSubview(bottomLineView, at:1)
@@ -168,7 +168,7 @@ import UIKit
         titleLabel.font = titleFont
         titleLabel.textColor = titleTextColour
         bottomLineView.backgroundColor = titleLabel.textColor
-        titleLabel.backgroundColor = backgroundColor
+       // titleLabel.backgroundColor = backgroundColor
         if !hint.isEmpty {
             titleLabel.text = hint
             titleLabel.sizeToFit()
@@ -219,6 +219,14 @@ import UIKit
         UIView.animate(withDuration: dur, delay:0, options: [UIViewAnimationOptions.beginFromCurrentState, UIViewAnimationOptions.curveEaseOut], animations:{
             // Animation
             self.titleLabel.alpha = 1.0
+            
+            // set your superview's background color
+            if self.superview?.superview?.backgroundColor != nil {
+                
+                self.titleLabel.backgroundColor = self.superview?.superview?.backgroundColor
+            } else {
+                self.titleLabel.backgroundColor = self.backgroundColor
+            }
             var r = self.titleLabel.frame
             r.origin.y = self.titleYPadding + self.contentOffset.y
             self.titleLabel.frame = r
@@ -231,6 +239,7 @@ import UIKit
         UIView.animate(withDuration: dur, delay:0, options: [UIViewAnimationOptions.beginFromCurrentState, UIViewAnimationOptions.curveEaseIn], animations:{
             // Animation
             self.titleLabel.alpha = 0.0
+            self.titleLabel.backgroundColor = self.backgroundColor
             var r = self.titleLabel.frame
             r.origin.y = self.titleLabel.font.lineHeight + self.hintYPadding
             self.titleLabel.frame = r

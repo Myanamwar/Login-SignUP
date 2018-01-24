@@ -423,26 +423,22 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YOo-S4-UDR" userLabel="addressView">
                                                 <rect key="frame" x="20" y="510" width="335" height="90"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5HB-W4-pC3" customClass="FloatLabelTextField" customModule="SignUp" customModuleProvider="target">
-                                                        <rect key="frame" x="5" y="5" width="325" height="85"/>
-                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="td8-2I-tLS" customClass="FloatLabelTextView" customModule="SignUp" customModuleProvider="target">
+                                                        <rect key="frame" x="5" y="5" width="325" height="80"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                         <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="color" keyPath="titleActiveTextColour">
-                                                                <color key="value" red="0.33333333329999998" green="0.4823529412" blue="0.76862745099999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="hint" value="Address"/>
                                                         </userDefinedRuntimeAttributes>
-                                                    </textField>
+                                                    </textView>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="90" id="4lD-mC-zdY"/>
-                                                    <constraint firstAttribute="trailing" secondItem="5HB-W4-pC3" secondAttribute="trailing" constant="5" id="BhZ-gr-mH5"/>
-                                                    <constraint firstAttribute="bottom" secondItem="5HB-W4-pC3" secondAttribute="bottom" id="nCV-vK-eK2"/>
-                                                    <constraint firstItem="5HB-W4-pC3" firstAttribute="leading" secondItem="YOo-S4-UDR" secondAttribute="leading" constant="5" id="tos-XI-vkJ"/>
-                                                    <constraint firstItem="5HB-W4-pC3" firstAttribute="top" secondItem="YOo-S4-UDR" secondAttribute="top" constant="5" id="w2X-94-Ya2"/>
+                                                    <constraint firstAttribute="bottom" secondItem="td8-2I-tLS" secondAttribute="bottom" constant="5" id="GjY-lB-4wV"/>
+                                                    <constraint firstAttribute="trailing" secondItem="td8-2I-tLS" secondAttribute="trailing" constant="5" id="baV-k8-MYg"/>
+                                                    <constraint firstItem="td8-2I-tLS" firstAttribute="leading" secondItem="YOo-S4-UDR" secondAttribute="leading" constant="5" id="gIL-lX-Wwq"/>
+                                                    <constraint firstItem="td8-2I-tLS" firstAttribute="top" secondItem="YOo-S4-UDR" secondAttribute="top" constant="5" id="m7g-NG-Jvn"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CL0-Py-0kn" userLabel="cityView">
@@ -569,7 +565,7 @@
                     <size key="freeformSize" width="375" height="820"/>
                     <connections>
                         <outlet property="addressHeightCons" destination="4lD-mC-zdY" id="ydf-4g-f4i"/>
-                        <outlet property="addressTextField" destination="5HB-W4-pC3" id="Tx2-Vj-Esg"/>
+                        <outlet property="addressTextView" destination="td8-2I-tLS" id="Rag-Ek-izk"/>
                         <outlet property="addressTopCons" destination="4kt-VW-spU" id="TZt-pt-t8A"/>
                         <outlet property="addressView" destination="YOo-S4-UDR" id="SuO-kE-3GR"/>
                         <outlet property="cityHeightCons" destination="6cn-EM-VXg" id="pE8-3M-cw1"/>
