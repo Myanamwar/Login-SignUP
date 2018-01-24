@@ -107,7 +107,6 @@ open class LoginViewController: UIViewController {
             break
         default:
             self.loginLeadingConstraint.constant = (screenWidth - viewWidth)/2
-            print("(screenWidth - viewWidth)/2: \((screenWidth - viewWidth)/2) ;;;; (screenHeight - viewHeight)/2: \((screenHeight - viewHeight)/2)")
             self.loginTopConstraint.constant = (screenHeight - viewHeight)/2
             break
         }
