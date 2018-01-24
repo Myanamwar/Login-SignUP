@@ -28,6 +28,7 @@
 		18CB307A2004869E00E8EC9F /* RegistrationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CB30792004869E00E8EC9F /* RegistrationVC.swift */; };
 		18CB307C2004D33A00E8EC9F /* FingerPrintAccessVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CB307B2004D33A00E8EC9F /* FingerPrintAccessVC.swift */; };
 		18CB30812004EAAB00E8EC9F /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CB30802004EAAB00E8EC9F /* BaseVC.swift */; };
+		18EF3B602018660700252CB3 /* OTPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EF3B5F2018660700252CB3 /* OTPViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		18CB30792004869E00E8EC9F /* RegistrationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationVC.swift; sourceTree = "<group>"; };
 		18CB307B2004D33A00E8EC9F /* FingerPrintAccessVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingerPrintAccessVC.swift; sourceTree = "<group>"; };
 		18CB30802004EAAB00E8EC9F /* BaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
+		18EF3B5F2018660700252CB3 /* OTPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +144,7 @@
 				1826EF67201208E300C018C5 /* FloatLabelTextView.swift */,
 				1833D4CB20174850001F155D /* CustomFloatLabelTextView.swift */,
 				180407A020032BCC00AFCC09 /* LoginViewController.swift */,
+				18EF3B5F2018660700252CB3 /* OTPViewController.swift */,
 				18CB30802004EAAB00E8EC9F /* BaseVC.swift */,
 				18CB307B2004D33A00E8EC9F /* FingerPrintAccessVC.swift */,
 				180407A820039D0C00AFCC09 /* ForgotPasswordVC.swift */,
@@ -311,6 +314,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18EF3B602018660700252CB3 /* OTPViewController.swift in Sources */,
 				180407A120032BCC00AFCC09 /* LoginViewController.swift in Sources */,
 				18067BC22010BE8D00F8AE11 /* SampleTextFieldVC.swift in Sources */,
 				186B0FFE1FFFAFB600F84330 /* ViewController.swift in Sources */,

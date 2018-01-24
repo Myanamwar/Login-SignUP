@@ -20,11 +20,7 @@ open class ViewController: UIViewController {
         super.viewDidLoad()
         self.title = "Select any View Position"
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: #colorLiteral(red: 0, green: 0.631372549, blue: 0.8901960784, alpha: 1)]
-//        var i = 2
-//        repeat {
-//            i *= i * 2;
-//        } while (i < 100)
-//        print("i iii - \(i)")
+
     }
     override open func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

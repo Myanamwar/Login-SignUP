@@ -79,7 +79,7 @@ open class RegistrationVC: UIViewController {
         self.postalCodeTextField.delegate = self
         
         fisrtNameTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .allEvents)
-        
+        self.signUPButton.addTarget(self, action: #selector(signUP(_:)), for: .touchUpInside)
         setTextColorForControls()
     }
     override open func viewWillAppear(_ animated: Bool) {
@@ -182,11 +182,13 @@ open class RegistrationVC: UIViewController {
             self.mobileNoHeightCons.constant = 65
             self.mobileNoTopCons.constant = 5
             self.phoneView.isHidden = false
+            self.signUPButton.setTitle("Next", for: .normal)
             
         } else {
             self.mobileNoHeightCons.constant = 0
             self.mobileNoTopCons.constant = 0
             self.phoneView.isHidden = true
+            self.signUPButton.setTitle("SignUP", for: .normal)
             
         }
         if isVisibleAddress {
@@ -230,6 +232,14 @@ open class RegistrationVC: UIViewController {
         
         let sampleTextFieldVC: SampleTextFieldVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SampleTextFieldVC") as! SampleTextFieldVC
         self.navigationController?.pushViewController(sampleTextFieldVC, animated: false)
+    }
+    @objc func signUP(_ sender: UIButton) {
+        if signUPButton.titleLabel?.text == "Next" {
+            let OTPVC: OTPViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "OTPViewController") as! OTPViewController
+            self.navigationController?.pushViewController(OTPVC, animated: false)
+        } else {
+            showAlert(message: "SignUp successfull", currentVC: self)
+        }
     }
 }
 extension RegistrationVC: UITextFieldDelegate {
