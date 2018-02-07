@@ -28,7 +28,6 @@ open class ForgotPasswordVC: UIViewController {
     override open func viewDidLoad() {
         super.viewDidLoad()
         self.setNewPassword.backgroundColor = _buttonBackgroundColor
-        // Do any additional setup after loading the view.
     }
 
     override open func didReceiveMemoryWarning() {

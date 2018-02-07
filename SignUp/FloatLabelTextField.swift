@@ -1,14 +1,14 @@
 import UIKit
 
 @IBDesignable class FloatLabelTextField: UITextField {
-    var titleLabel = UILabel()
+    var _titleLabel = UILabel()
     let bottomLineView = UIView()
     
     // MARK:- Properties
     override var accessibilityLabel:String? {
         get {
             if let txt = text , txt.isEmpty {
-                return titleLabel.text
+                return _titleLabel.text
             } else {
                 return text
             }
@@ -20,22 +20,26 @@ import UIKit
     
     override var placeholder:String? {
         didSet {
-            titleLabel.text = placeholder
-            titleLabel.sizeToFit()
+            _titleLabel.text = placeholder
+            _titleLabel.sizeToFit()
         }
     }
-    
+    @IBInspectable var placeHolderColor: UIColor = .white {
+        didSet {
+            self.attributedPlaceholder = NSAttributedString(string:self.placeholder != nil ? self.placeholder! : "", attributes:[NSAttributedStringKey.foregroundColor: placeHolderColor])
+        }
+    }
     override var attributedPlaceholder:NSAttributedString? {
         didSet {
-            titleLabel.text = attributedPlaceholder?.string
-            titleLabel.sizeToFit()
+            _titleLabel.text = attributedPlaceholder?.string
+            _titleLabel.sizeToFit()
         }
     }
     
-    var titleFont:UIFont = UIFont.boldSystemFont(ofSize: 15.0) {
+    var titleFont:UIFont = UIFont.boldSystemFont(ofSize: 17.0) {
         didSet {
-            titleLabel.font = titleFont
-            titleLabel.sizeToFit()
+            _titleLabel.font = titleFont
+            _titleLabel.sizeToFit()
         }
     }
     
@@ -43,25 +47,25 @@ import UIKit
     
     @IBInspectable var titleLabelYPadding:CGFloat = 0.0 {
         didSet {
-            var r = titleLabel.frame
+            var r = _titleLabel.frame
             r.origin.y = titleLabelYPadding
-            titleLabel.frame = r
+            _titleLabel.frame = r
         }
     }
     
     @IBInspectable var titleTextColour:UIColor = UIColor.gray {
         didSet {
             if !isFirstResponder {
-                titleLabel.textColor = titleTextColour
-                bottomLineView.backgroundColor = titleLabel.textColor
+                _titleLabel.textColor = titleTextColour
+                bottomLineView.backgroundColor = _titleLabel.textColor
             }
         }
     }
-    @IBInspectable var titleActiveTextColour:UIColor! {
+    @IBInspectable var titleActiveTextColour:UIColor = .white {
         didSet {
             if isFirstResponder {
-                titleLabel.textColor = titleActiveTextColour
-                bottomLineView.backgroundColor = titleLabel.textColor
+                _titleLabel.textColor = titleActiveTextColour
+                bottomLineView.backgroundColor = _titleLabel.textColor
 
             }
         }
@@ -85,11 +89,11 @@ import UIKit
         setViewPosition()
         let isResp = isFirstResponder
         if let _ = text ,  isResp {
-            titleLabel.textColor = titleActiveTextColour
+            _titleLabel.textColor = titleActiveTextColour
         } else {
-            titleLabel.textColor = titleTextColour
+            _titleLabel.textColor = titleTextColour
         }
-        bottomLineView.backgroundColor = titleLabel.textColor
+        bottomLineView.backgroundColor = _titleLabel.textColor
         // Should we show or hide the title label?
         if let txt = text , txt.isEmpty {
             // Hide
@@ -106,7 +110,7 @@ import UIKit
     
     override func textRect(forBounds bounds:CGRect) -> CGRect {
         var r = super.textRect(forBounds: bounds)
-            var top = ceil(titleLabel.font.lineHeight + hintLabelYPadding)
+            var top = ceil(_titleLabel.font.lineHeight + hintLabelYPadding)
             top = min(top, maxTopInset())
             r = UIEdgeInsetsInsetRect(r, UIEdgeInsetsMake(top, 0.0, 0.0, 0.0))
         return r.integral
@@ -114,7 +118,7 @@ import UIKit
     
     override func editingRect(forBounds bounds:CGRect) -> CGRect {
         var r = super.editingRect(forBounds: bounds)
-            var top = ceil(titleLabel.font.lineHeight + hintLabelYPadding)
+            var top = ceil(_titleLabel.font.lineHeight + hintLabelYPadding)
             top = min(top, maxTopInset())
             r = UIEdgeInsetsInsetRect(r, UIEdgeInsetsMake(top, 0.0, 0.0, 0.0))
         return r.integral
@@ -122,7 +126,7 @@ import UIKit
     
     override func clearButtonRect(forBounds bounds:CGRect) -> CGRect {
         var r = super.clearButtonRect(forBounds: bounds)
-            var top = ceil(titleLabel.font.lineHeight + hintLabelYPadding)
+            var top = ceil(_titleLabel.font.lineHeight + hintLabelYPadding)
             top = min(top, maxTopInset())
             r = CGRect(x:r.origin.x, y:r.origin.y + (top * 0.5), width:r.size.width, height:r.size.height)
         return r.integral
@@ -132,18 +136,19 @@ import UIKit
     
     // MARK:- Private Methods
     fileprivate func setup() {
+        
         borderStyle = UITextBorderStyle.none
         titleActiveTextColour = tintColor
         // Set up title label
-        titleLabel.alpha = 0.0
-        titleLabel.font = titleFont
-        titleLabel.textColor = titleTextColour
-        bottomLineView.backgroundColor = titleLabel.textColor
+        _titleLabel.alpha = 0.0
+        _titleLabel.font = titleFont
+        _titleLabel.textColor = titleTextColour
+        bottomLineView.backgroundColor = _titleLabel.textColor
         if let str = placeholder , !str.isEmpty {
-            titleLabel.text = str
-            titleLabel.sizeToFit()
+            _titleLabel.text = str
+            _titleLabel.sizeToFit()
         }
-        self.addSubview(titleLabel)
+        self.addSubview(_titleLabel)
         self.addSubview(bottomLineView)
         self.layer.masksToBounds = true
 
@@ -159,11 +164,11 @@ import UIKit
         let r = textRect(forBounds: bounds)
         var x = r.origin.x
         if textAlignment == NSTextAlignment.center {
-            x = r.origin.x + (r.size.width * 0.5) - titleLabel.frame.size.width
+            x = r.origin.x + (r.size.width * 0.5) - _titleLabel.frame.size.width
         } else if textAlignment == NSTextAlignment.right {
-            x = r.origin.x + r.size.width - titleLabel.frame.size.width
+            x = r.origin.x + r.size.width - _titleLabel.frame.size.width
         }
-        titleLabel.frame = CGRect(x:x, y:titleLabel.frame.origin.y, width:titleLabel.frame.size.width, height:titleLabel.frame.size.height)
+        _titleLabel.frame = CGRect(x:x, y:_titleLabel.frame.origin.y, width:_titleLabel.frame.size.width, height:_titleLabel.frame.size.height)
     }
     fileprivate func setViewPosition() {
         let width = CGFloat(2.0)
@@ -174,10 +179,10 @@ import UIKit
         let dur = animated ? 0.3 : 0
         UIView.animate(withDuration: dur, delay:0, options: [UIViewAnimationOptions.beginFromCurrentState, UIViewAnimationOptions.curveEaseOut], animations:{
             // Animation
-            self.titleLabel.alpha = 1.0
-            var r = self.titleLabel.frame
+            self._titleLabel.alpha = 1.0
+            var r = self._titleLabel.frame
             r.origin.y = self.titleLabelYPadding
-            self.titleLabel.frame = r
+            self._titleLabel.frame = r
         }, completion:nil)
     }
     
@@ -185,10 +190,10 @@ import UIKit
         let dur = animated ? 0.3 : 0
         UIView.animate(withDuration: dur, delay:0, options: [UIViewAnimationOptions.beginFromCurrentState, UIViewAnimationOptions.curveEaseIn], animations:{
             // Animation
-            self.titleLabel.alpha = 0.0
-            var r = self.titleLabel.frame
-            r.origin.y = self.titleLabel.font.lineHeight + self.hintLabelYPadding
-            self.titleLabel.frame = r
+            self._titleLabel.alpha = 0.0
+            var r = self._titleLabel.frame
+            r.origin.y = self._titleLabel.font.lineHeight + self.hintLabelYPadding
+            self._titleLabel.frame = r
         }, completion:nil)
     }
 }

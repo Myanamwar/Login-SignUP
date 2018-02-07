@@ -32,8 +32,7 @@ open class LoginViewController: UIViewController {
     override open func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Login"
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: #colorLiteral(red: 0, green: 0.631372549, blue: 0.8901960784, alpha: 1)]
-        self.view.backgroundColor = #colorLiteral(red: 0.4352941176, green: 0.8274509804, blue: 0.9254901961, alpha: 1)
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: #colorLiteral(red: 0.2705882353, green: 0.4274509804, blue: 0.5803921569, alpha: 1)]
         loginView.delegate = self
         defaultTopConstraint = self.loginTopConstraint.constant
         defaultLeadingConstraint = self.loginLeadingConstraint.constant

@@ -19,15 +19,17 @@ func showAlert(message: String, currentVC: UIViewController) {
 }
 
 // change background color
-public var _backgroundColor : UIColor = #colorLiteral(red: 0.4352941176, green: 0.8274509804, blue: 0.9254901961, alpha: 1)
+public var _backgroundColor : UIColor = .clear
 
 // change text color
-public var _textColor : UIColor = #colorLiteral(red: 0.337254902, green: 0.4823529412, blue: 0.7843137255, alpha: 1)
+public var _textColor : UIColor = #colorLiteral(red: 0, green: 0.4823529412, blue: 0.7843137255, alpha: 1)
 
 public var _labelTextColor : UIColor = #colorLiteral(red: 0, green: 0.631372549, blue: 0.8901960784, alpha: 1)
 
 // change button background color
 public var _buttonBackgroundColor : UIColor = #colorLiteral(red: 0, green: 0.2862745098, blue: 0.5058823529, alpha: 1)
+
+public var _buttonTextColor : UIColor = .white
 
 // change cheked & unChecked Images if you want
 public var checkedImage : UIImage = #imageLiteral(resourceName: "checked")

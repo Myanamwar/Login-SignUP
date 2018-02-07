@@ -44,14 +44,14 @@ open class BaseVC: UIViewController {
     override open func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: #colorLiteral(red: 0, green: 0.631372549, blue: 0.8901960784, alpha: 1)]
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: #colorLiteral(red: 0.2705882353, green: 0.4274509804, blue: 0.5803921569, alpha: 1)]
         self.selectAllButton.setImage(unCheckedImage, for: .normal)
         
         setTitleAndBGColorsForButtons()
     }
     override open func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.title = "Login/SignUP"
+        self.title = "LoginType"
         self.loginTypeView.isHidden = false
         self.signupOptionalFieldsView.isHidden = true
         self.loginSubView.isHidden = true
@@ -81,7 +81,7 @@ open class BaseVC: UIViewController {
     }
     
     @IBAction func signUPClicked(_ sender: Any) {
-        self.title = "Select SignUP fields"
+//        self.title = "Select SignUP fields"
         self.loginButton.setImage(unCheckedImage, for: .normal)
         self.signUpButton.setImage(checkedImage, for: .normal)
         self.loginSubView.isHidden = true
@@ -103,7 +103,7 @@ open class BaseVC: UIViewController {
         self.usernameOrPasswordButton.setImage(checkedImage, for: .normal)
         self.biometricButton.setImage(unCheckedImage, for: .normal)
         self.signupOptionalFieldsView.isHidden = true
-        let loginVC: ViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ViewController") as! ViewController
+        let loginVC: LoginViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
         self.navigationController?.pushViewController(loginVC, animated: false)
     }
     

@@ -28,12 +28,10 @@ open class RegistrationVC: UIViewController {
     @IBOutlet var lastNameTextField: FloatLabelTextField!
     
     @IBOutlet var emailTextField: FloatLabelTextField!
-    //    @IBOutlet var emailTextField: CustomTextField!
     @IBOutlet var passwordTextField: FloatLabelTextField!
     @IBOutlet var dobTextField: FloatLabelTextField!
     @IBOutlet var genderTextField: FloatLabelTextField!
     @IBOutlet var phoneTextField: FloatLabelTextField!
-//    @IBOutlet var addressTextField: FloatLabelTextField!
     @IBOutlet var addressTextView: FloatLabelTextView!
     @IBOutlet var cityTextField: FloatLabelTextField!
     @IBOutlet var postalCodeTextField: FloatLabelTextField!
@@ -43,9 +41,9 @@ open class RegistrationVC: UIViewController {
     @IBOutlet var signUPButton: UIButton!
     
     @IBOutlet var firstNameHeightCons: NSLayoutConstraint!
-    @IBOutlet var firstNameTopCons: NSLayoutConstraint!//20
-    @IBOutlet var lastNameHeightCons: NSLayoutConstraint!//65
-    @IBOutlet var lastNameTopCons: NSLayoutConstraint!//5
+    @IBOutlet var firstNameTopCons: NSLayoutConstraint!
+    @IBOutlet var lastNameHeightCons: NSLayoutConstraint!
+    @IBOutlet var lastNameTopCons: NSLayoutConstraint!
     @IBOutlet var emailHeightCons: NSLayoutConstraint!
     @IBOutlet var emailTopCons: NSLayoutConstraint!
     @IBOutlet var passwordHeightCons: NSLayoutConstraint!
@@ -66,7 +64,7 @@ open class RegistrationVC: UIViewController {
     // MARK:- View Life Cycle Methods
     override open func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Registration"
+        self.title = "SignUP"
         self.fisrtNameTextField.delegate = self
         self.lastNameTextField.delegate = self
         self.emailTextField.delegate = self
@@ -74,7 +72,6 @@ open class RegistrationVC: UIViewController {
         self.dobTextField.delegate = self
         self.genderTextField.delegate = self
         self.phoneTextField.delegate = self
-//        self.addressTextField.delegate = self
         self.cityTextField.delegate = self
         self.postalCodeTextField.delegate = self
         
@@ -90,10 +87,6 @@ open class RegistrationVC: UIViewController {
     }
     override open func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-    }
-    override open func viewDidLayoutSubviews() {
-        //self.scrollView.contentSize = CGSize(width: 375, height: 760)
-        
     }
     // MARK:- Private Methods
     func setTextColorForControls() {
@@ -229,9 +222,6 @@ open class RegistrationVC: UIViewController {
     @IBAction func dobClicked(_ sender: Any) {
     }
     @IBAction func genderClicked(_ sender: Any) {
-        
-        let sampleTextFieldVC: SampleTextFieldVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SampleTextFieldVC") as! SampleTextFieldVC
-        self.navigationController?.pushViewController(sampleTextFieldVC, animated: false)
     }
     @objc func signUP(_ sender: UIButton) {
         if signUPButton.titleLabel?.text == "Next" {

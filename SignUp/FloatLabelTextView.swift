@@ -159,7 +159,6 @@ import UIKit
         hintLabel.text = hint
         hintLabel.numberOfLines = 0
         hintLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
-        //hintLabel.backgroundColor = UIColor.clear
         hintLabel.textColor = placeholderTextColor
         insertSubview(hintLabel, at:0)
         insertSubview(bottomLineView, at:1)
@@ -168,7 +167,6 @@ import UIKit
         titleLabel.font = titleFont
         titleLabel.textColor = titleTextColour
         bottomLineView.backgroundColor = titleLabel.textColor
-       // titleLabel.backgroundColor = backgroundColor
         if !hint.isEmpty {
             titleLabel.text = hint
             titleLabel.sizeToFit()
@@ -219,14 +217,14 @@ import UIKit
         UIView.animate(withDuration: dur, delay:0, options: [UIViewAnimationOptions.beginFromCurrentState, UIViewAnimationOptions.curveEaseOut], animations:{
             // Animation
             self.titleLabel.alpha = 1.0
-            
             // set your superview's background color
             if self.superview?.superview?.backgroundColor != nil {
-                
                 self.titleLabel.backgroundColor = self.superview?.superview?.backgroundColor
             } else {
-                self.titleLabel.backgroundColor = self.backgroundColor
+                
+                self.titleLabel.backgroundColor = #colorLiteral(red: 0.2705882353, green: 0.4274509804, blue: 0.5803921569, alpha: 1)
             }
+//           self.titleLabel.backgroundColor = self.superview?.backgroundColor
             var r = self.titleLabel.frame
             r.origin.y = self.titleYPadding + self.contentOffset.y
             self.titleLabel.frame = r
